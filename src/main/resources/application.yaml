@@ -1,0 +1,26 @@
+spring.datasource:
+  url: jdbc:h2:./camunda-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  username: sa
+  password: sa
+spring.h2.console.enabled: true
+spring.jersey:
+  application-path: /rest
+camunda:
+  bpm:
+    admin-user:
+      id: demo
+      password: demo
+      firstName: Demo
+    authorization:
+      enabled: true
+    default-serialization-format: "application/json"
+    history-level: "FULL"
+    id-generator: "org.camunda.bpm.engine.impl.persistence.StrongUuidGenerator"
+    jdbc-batch-processing: false
+    job-execution:
+      enabled: true
+      max-wait: 5000
+    metrics:
+      enabled: true  #must be set to true if you want to use Spring boot ACTUATOR
+server:
+  port: 8080
